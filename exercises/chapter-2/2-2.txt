@@ -1,0 +1,22 @@
+2.2-1
+	n**3 / 1000 - 100n**2 - 100n + 3 € Θ(n^3)
+
+2.2-2
+	selection_sort(A)                               cost    times
+		for i = 0 to A.length - 1                   c1      n - 1
+            // Find the minimum element of A[i:]
+            min = i + 1                             0       n - 1
+            for j = i to A.length - 1               c2      \sum{0}{n - 1} n - 1 - i
+                if A[j] < A[min]                    c3      \sum{0}{n - 1} n - 1 - i
+                    min = j                         c4      \sum{0}{n - 1} n - 1 - i
+            
+            swap(A, i, min)                         c5      n - 1
+
+    - Loop invariant
+        On the nth iteration of the main for loop, the first n elements are
+        sorted, and are the minimum.
+    - It only needs to run on the first n - 1 elements because the last will
+      always be the largest, because of the invariant.
+    - Note: As to find the minimum the algorithm always does the same, the
+            worst and best cases are the same
+        Complexity: Θ(n^2)
